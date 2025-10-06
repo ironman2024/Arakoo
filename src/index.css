@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar styles */
+@layer utilities {
+  .custom-scrollbar::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-black/20 rounded;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-white/20 rounded;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-white/30;
+  }
+}
+
+/* Animation for response text reveal */
+@keyframes fadeInBlur {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+.word-reveal {
+  animation: fadeInBlur 0.5s ease-out forwards;
+}
+
+/* API key error animation */
+@keyframes blinkRed {
+  0%, 100% {
+    @apply border-white/10 bg-black/30;
+  }
+  25%, 75% {
+    @apply border-red-500 bg-red-500/10;
+  }
+  50% {
+    @apply border-red-400 bg-red-500/15;
+  }
+}
+
+.api-key-error {
+  animation: blinkRed 1s ease-in-out;
+}
